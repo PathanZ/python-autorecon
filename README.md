@@ -102,6 +102,17 @@ output/
   Errors        : 1
 ============================================================
 ```
+## 🤖 AI Triage Integration
+
+The structured JSON output produced by AutoRecon is designed to feed directly 
+into an AI triage pipeline. Each module's results — open ports, DNS records, 
+SSL findings, HTTP headers — are keyed consistently, making them consumable 
+by an LLM (e.g. Claude, GPT-4) without preprocessing. A downstream AI layer 
+could ingest this JSON, prioritize findings by exploitability, map detected 
+service versions to known CVEs, and generate analyst-ready summaries in plain 
+English — reducing manual triage time in real pentest engagements and security 
+assurance workflows. This architecture mirrors AI-enabled security testing 
+approaches being adopted in enterprise and regulated environments.
 
 ## Security Headers Checked
 
@@ -126,6 +137,10 @@ python-autorecon/
 
 ## Extending This Project
 
+- Feed JSON output into an **AI triage layer** (Claude/GPT-4) for automated 
+  finding prioritization and plain-English summaries
+- Map detected service versions to **NIST 800-53 controls** for compliance 
+  validation workflows
 - Add **CVE lookup** based on detected service versions
 - Integrate **Shodan API** for passive recon
 - Add **screenshot capture** of web services
@@ -139,6 +154,7 @@ python-autorecon/
 - Multi-module tool design
 - REST API and socket programming
 - Pentest workflow automation
+- AI-assisted security workflow design
 
 ## ⚠️ Legal Disclaimer
 
@@ -146,5 +162,6 @@ This tool is for **authorized testing and educational purposes only**. Only scan
 
 ---
 
-*Part of my SOC/Pentesting home lab series.*
+*Part of my SOC/Pentesting home lab series — built for real pentest workflows 
+and AI-assisted security assurance.*
 *See also: [Mini SOC Home Lab](https://github.com/PathanZ/mini-home-soc) · [Threat Intel Feed Integrator](https://github.com/PathanZ/threat-intel-feed-integrator)*
